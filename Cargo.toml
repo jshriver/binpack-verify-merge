@@ -1,0 +1,15 @@
+[package]
+name = "binpack-merge-validate"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Completely strip the hardware bmi2 engine flag to use the safe software bit-shifter
+sfbinpack = "0.6.2" 
+rayon = "1.12.0"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "unwind"
